@@ -1,0 +1,6 @@
+{% if page.nextLink or page.prevLink %}
+<div class="PageNavigation">
+  {% if page.prevLink %}<a class="prev" href="{{ page.prevLink }}">« {{ page.prevTitle }}</a>{% endif %}
+  {% if page.nextLink %}<a class="next" href="{{ page.nextLink }}">{{ page.nextTitle }} »</a>{% endif %} 
+</div>
+{% endif %}

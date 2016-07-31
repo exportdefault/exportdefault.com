@@ -1,0 +1,27 @@
+{
+  "name": "export-default-site",
+  "homepage": "exportdefault.com",
+  "authors": [
+    "Alexander Morgunov <fxl@list.com>"
+  ],
+  "description": "Sources of the site exportdefault.com",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#~3.0.3",
+    "compass-breakpoint": "~2.6.1",
+    "animsition": "~4.0.1",
+    "jquery": "~2.2.0",
+    "gridlex": "~2.0.8",
+    "mixitup": "mixitup2#~2.1.11"
+  }
+}
