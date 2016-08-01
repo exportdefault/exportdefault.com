@@ -64,18 +64,47 @@ h1 {
   line-height: 1.2em;
   letter-spacing: -2px;
   text-indent: -3px; }
+  @media (min-width: 500px) and (max-width: 900px) {
+    h1 {
+      font-size: 4.8rem;
+      text-indent: -2px; } }
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.1em;
+      letter-spacing: -1px; } }
 
 h2 {
   font-size: 4rem;
   line-height: 1.2em;
   letter-spacing: -1px;
   text-indent: -2px; }
+  @media (min-width: 500px) and (max-width: 900px) {
+    h2 {
+      font-size: 3.8rem; } }
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 2.8rem;
+      line-height: 1.1em;
+      letter-spacing: -1px; } }
 
 h3 {
   font-size: 3.5rem; }
+  @media (min-width: 500px) and (max-width: 900px) {
+    h3 {
+      font-size: 3.3rem; } }
+  @media (max-width: 500px) {
+    h3 {
+      font-size: 2.8rem; } }
 
 h4 {
   font-size: 3rem; }
+  @media (min-width: 500px) and (max-width: 900px) {
+    h4 {
+      font-size: 2.8rem; } }
+  @media (max-width: 500px) {
+    h4 {
+      font-size: 2.3rem; } }
 
 h5 {
   font-size: 2.5rem; }
@@ -168,11 +197,11 @@ pre {
   width: 100%;
   padding: 10px;
   font-family: Inconsolata, monospace, sans-serif;
-  font-size: 0.9em;
   white-space: pre;
   overflow: auto;
   background: #F7FAFB;
-  border-radius: 3px; }
+  border-radius: 3px;
+  overflow-x: auto; }
 
 pre code, tt {
   font-size: inherit;
@@ -180,7 +209,9 @@ pre code, tt {
   white-space: pre-wrap;
   background: transparent;
   border: none;
-  padding: 0; }
+  padding: 0;
+  overflow-wrap: normal;
+  white-space: pre; }
 
 kbd {
   display: inline-block;
@@ -242,6 +273,9 @@ iframe, .fluid-width-video-wrapper {
 /* When a video is inside the fitvids wrapper, drop the
 margin on the iframe, cause it breaks stuff. */
 .fluid-width-video-wrapper iframe {
+  margin: 0; }
+
+figure {
   margin: 0; }
 
 .highlight pre {
@@ -601,7 +635,142 @@ margin on the iframe, cause it breaks stuff. */
   border-bottom: .3rem solid #f0f0f0;
   text-align: center; }
 
-/* Every post, on every page, gets this style on its <article> tag */
+/*
+    0.  Includes
+    1.  Icons
+    2.  General
+    3.  Utilities
+    4.  General
+    5.  Single Post
+    6.  Third Party Elements
+    7.  Pagination
+    8.  Footer
+    9.  Media Queries (Tablet)
+    10. Media Queries (Mobile)
+ */
+/* ==========================================================================
+   1. Icons - Sets up the icon font and respective classes
+   ========================================================================== */
+/* Import the font file with the icons in it */
+@font-face {
+  font-family: 'icons';
+  src: url("http://david.elbe.me/assets/fonts/icons.eot");
+  src: url("http://david.elbe.me/assets/fonts/icons.eot?#iefix") format("embedded-opentype"), url("http://david.elbe.me/assets/fonts/icons.woff") format("woff"), url("http://david.elbe.me/assets/fonts/icons.ttf") format("truetype"), url("http://david.elbe.me/assets/fonts/icons.svg#icons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Apply these base styles to all icons */
+.icon-ghost:before,
+.icon-feed:before,
+.icon-twitter:before,
+.icon-google-plus:before,
+.icon-facebook:before {
+  font-family: 'icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none; }
+
+/* Each icon is created by inserting the corret character into the
+   content of the :before pseudo element. Like a boss. */
+.icon-ghost:before {
+  content: "\e000"; }
+
+.icon-feed:before {
+  content: "\e001"; }
+
+.icon-twitter:before {
+  content: "\e002";
+  font-size: 1.1em; }
+
+.icon-google-plus:before {
+  content: "\e003"; }
+
+.icon-facebook:before {
+  content: "\e004"; }
+
+/* ==========================================================================
+   3. Utilities - These things get used a lot
+   ========================================================================== */
+/* Hides shit */
+.hidden {
+  text-indent: -9999px;
+  visibility: hidden;
+  display: none; }
+
+/* Creates a responsive wrapper that makes our content scale nicely */
+.inner {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto; }
+
+/* Centres vertically yo. (IE8+) */
+.vertical {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }
+
+/* ==========================================================================
+   4. General - The main styles for the the theme
+   ========================================================================== */
+.site-head {
+  position: relative;
+  display: table;
+  width: 100%;
+  margin-bottom: 5rem;
+  text-align: center;
+  color: #fff;
+  background: #303538 no-repeat center center;
+  background-size: cover; }
+
+.blog-logo {
+  text-decoration: none; }
+
+/* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
+.blog-logo img {
+  display: block;
+  max-height: 100px;
+  width: auto;
+  margin: 0 auto;
+  line-height: 0; }
+
+/* The details of your blog. Defined in ghost/settings/ */
+.blog-title {
+  margin: 10px 0 10px 0;
+  font-size: 5rem;
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif; }
+
+.blog-description {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.5em;
+  font-weight: 300;
+  font-family: 'Noto Serif', serif;
+  letter-spacing: 0; }
+
+/* Github */
+.gist table {
+  margin: 0;
+  font-size: 1.4rem; }
+
+.gist .line-number {
+  min-width: 25px;
+  font-size: 1.1rem; }
+
+.post-list {
+  list-style-type: none; }
+
+.post-item__title {
+  margin-top: -0.9rem;
+  font-size: 1.1em; }
+
 .post {
   position: relative;
   width: 80%;
@@ -613,23 +782,33 @@ margin on the iframe, cause it breaks stuff. */
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto; }
+  .post::after {
+    display: block;
+    content: "";
+    width: 7px;
+    height: 7px;
+    border: #E7EEF2 1px solid;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -5px;
+    background: #fff;
+    border-radius: 100%;
+    box-shadow: #fff 0 0 0 5px; }
+  @media (min-width: 500px) and (max-width: 900px) {
+    .post {
+      font-size: 0.9em;
+      line-height: 1.6em; } }
+  @media (max-width: 500px) {
+    .post {
+      width: auto;
+      margin-left: 16px;
+      margin-right: 16px;
+      font-size: 0.8em;
+      line-height: 1.6em; } }
 
 /* Add a little circle in the middle of the border-bottom on our .post
    just for the lolz and stylepoints. */
-.post:after {
-  display: block;
-  content: "";
-  width: 7px;
-  height: 7px;
-  border: #E7EEF2 1px solid;
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  margin-left: -5px;
-  background: #fff;
-  border-radius: 100%;
-  box-shadow: #fff 0 0 0 5px; }
-
 .post-title {
   margin: 0; }
 
@@ -643,11 +822,17 @@ margin on the iframe, cause it breaks stuff. */
 
 .post-meta {
   display: inline-block;
-  margin: 0 0 0px 0;
+  margin: 0 0 5px 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.5rem;
   color: #9EABB3;
   text-transform: uppercase; }
+  @media (min-width: 500px) and (max-width: 900px) {
+    .post-meta {
+      font-size: .8em; } }
+  @media (max-width: 500px) {
+    .post-meta {
+      font-size: .7em; } }
 
 .post-meta a {
   color: #9EABB3;

@@ -1,18 +1,29 @@
-/* Every post, on every page, gets this style on its <article> tag */
-.post {
-    position: relative;
-    width:80%;
-    max-width: 700px;
-    margin: 4rem auto;
-    padding-bottom: 4rem;
-    border-bottom: #EBF2F6 1px solid;
-    word-break: break-word;
-    hyphens: auto;
+.page-content {
+  //text-align: center;
 }
 
-/* Add a little circle in the middle of the border-bottom on our .post
-   just for the lolz and stylepoints. */
-.post:after {
+.post-list {
+  list-style-type: none;
+}
+
+.post-item {
+  &__title {
+    margin-top: -0.9rem;
+    font-size: 1.1em;
+  }
+}
+
+.post {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  margin: 4rem auto;
+  padding-bottom: 4rem;
+  border-bottom: #EBF2F6 1px solid;
+  word-break: break-word;
+  hyphens: auto;
+
+  &::after {
     display: block;
     content: "";
     width: 7px;
@@ -27,7 +38,25 @@
     -moz-border-radius: 100%;
     border-radius: 100%;
     box-shadow: #fff 0 0 0 5px;
+  }
+
+  @include tablet-only {
+    font-size: 0.9em;
+    line-height: 1.6em;
+  }
+
+  @include mobile-only {
+    width:auto;
+    margin-left: 16px;
+    margin-right: 16px;
+    font-size: 0.8em;
+    line-height: 1.6em;
+  }
 }
+
+/* Add a little circle in the middle of the border-bottom on our .post
+   just for the lolz and stylepoints. */
+
 
 .post-title {
     margin:0;
@@ -44,21 +73,29 @@
 }
 
 .post-meta {
-    display: inline-block;
-    margin: 0 0 0px 0;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5rem;
-    color: #9EABB3;
-    text-transform: uppercase;
+  display: inline-block;
+  margin: 0 0 5px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  color: #9EABB3;
+  text-transform: uppercase;
+
+  @include tablet-only {
+    font-size: .8em;
+  }
+
+  @include mobile-only {
+    font-size: .7em;
+  }
 }
 
 .post-meta a {
-    color: #9EABB3;
-    text-decoration: none;
+  color: #9EABB3;
+  text-decoration: none;
 }
 
 .post-meta a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 

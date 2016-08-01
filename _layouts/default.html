@@ -8,29 +8,31 @@
   {% include header.html %}
 
   <main class="page-content">
+    <ul class="post post-list">
+      <!--{% for post in site.posts %}
+        <li class="post-item">
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <h2 class="post-item__title">
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+          </h2>
+        </li>
+      {% endfor %}-->
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-  
-    {% for post in paginator.posts %}
-      {% include article.html %}
-    {% endfor %}
+      {% for post in paginator.posts %}
+        <li class="post-item">
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <h2 class="post-item__title">
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+          </h2>
+        </li>
+      {% endfor %}
+    </ul>
 
     {% include paginator.html %}
+
+    &#123;% include subscribe-container %&#125;
   </main>
 
   {% include footer.html %}
-
 </body>
 </html>
