@@ -1,73 +1,811 @@
-/* Rosario. I've added and changed few things. Feel free to change it as you like */
+.article__header {
+  padding-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 0.3rem solid #f0f0f0; }
 
-/* Font size of 2.0 is too big, I'll reduce it */
-body {font-size: 1.9rem; }
+/*
 
-/* Adding some text shadow*/
-.site-head { padding: 40px 0; text-shadow: 2px 2px #234;}
-.site-head a {color:#eee;}
+// Our variables
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$base-font-weight: 400;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
 
-/* The font is too large in the post view. Revert to small size*/
-.post-header .blog-title {font-size:inherit;}
+$spacing-unit:     30px;
 
-/* Reduce font size and add line-height*/
-pre{
-  font-size: 0.75em;
-  line-height: 1.4em;
-}
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
 
-nav {
-    font-size: 13px;
-    text-align: center;
-    padding: 0.5em;
-}
-nav a {
-    font-family: 'Open Sans', sans-serif;
-    display: inline-block;
-    margin: 0.5em 1em;
-    background: #f2f2f2;
-    color: #57A3E8;
-    text-decoration: none;
-    border-radius: 6px;
-    padding: 0 1em;
-}
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
 
-nav a:hover {
-    background: #57A3E8;
-    color: #f2f2f2;
-}
+// Width of the content area
+$content-width:    800px;
 
-/* Author styling */
-.author {margin-bottom:1em;}
-.author header{
-  float:left;
-  width: 80px;
-}
-.author article{
-  margin-left:80px;
-  min-height: 80px;
-  padding-left:20px;
-}
-img.profile {
-  width:80px;
-  height:auto;
-    border-radius: 50px;
-}
+$on-palm:          600px;
+$on-laptop:        800px;
 
-.PageNavigation {
-  font-size: 14px;
-  display: block;
-  width: auto;
-  overflow: hidden;
-}
+ */
+html {
+  height: 100%;
+  max-height: 100%;
+  font-size: 62.5%; }
 
-.PageNavigation a {
-  display: block;
-  width: 50%;
+body {
+  height: 100%;
+  max-height: 100%;
+  font-family: 'Noto Serif', serif;
+  font-size: 2.0rem;
+  line-height: 1.6em;
+  color: #3A4145; }
+
+::-moz-selection {
+  color: #222;
+  background: #D6EDFF;
+  text-shadow: none; }
+
+::selection {
+  color: #222;
+  background: #D6EDFF;
+  text-shadow: none; }
+
+h1, h2, h3,
+h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  font-family: 'Open Sans', sans-serif; }
+
+h1 {
+  font-size: 5rem;
+  line-height: 1.2em;
+  letter-spacing: -2px;
+  text-indent: -3px; }
+
+h2 {
+  font-size: 4rem;
+  line-height: 1.2em;
+  letter-spacing: -1px;
+  text-indent: -2px; }
+
+h3 {
+  font-size: 3.5rem; }
+
+h4 {
+  font-size: 3rem; }
+
+h5 {
+  font-size: 2.5rem; }
+
+h6 {
+  font-size: 2rem; }
+
+a {
+  color: #4a4a4a;
+  transition: color ease 0.3s; }
+
+a:hover {
+  color: #57A3E8; }
+
+h1 a, h2 a, h3 a,
+h4 a, h5 a, h6 a {
+  color: #50585D; }
+
+p, ul, ol, dl {
+  margin: 1.6em 0; }
+
+ol ol, ul ul,
+ul ol, ol ul {
+  margin: 0.4em 0; }
+
+dl dt {
   float: left;
-  margin: 1em 0;
-}
-
-.PageNavigation .next {
+  width: 180px;
+  overflow: hidden;
+  clear: left;
   text-align: right;
-}
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+  margin-bottom: 1em; }
+
+dl dd {
+  margin-left: 200px;
+  margin-bottom: 1em; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #efefef;
+  margin: 3.2em 0;
+  padding: 0; }
+
+blockquote {
+  box-sizing: border-box;
+  margin: 1.6em 0 1.6em -2.2em;
+  padding: 0 0 0 1.6em;
+  border-left: #4a4a4a 0.4em solid; }
+
+blockquote p {
+  margin: 0.8em 0;
+  font-style: italic; }
+
+blockquote small {
+  display: inline-block;
+  margin: 0.8em 0 0.8em 1.5em;
+  font-size: 0.9em;
+  color: #ccc; }
+
+blockquote small:before {
+  content: '\2014 \00A0'; }
+
+blockquote cite {
+  font-weight: bold; }
+
+blockquote cite a {
+  font-weight: normal; }
+
+mark {
+  background-color: #ffc336; }
+
+code, tt {
+  padding: 1px 3px;
+  font-family: Inconsolata, monospace, sans-serif;
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  border: 1px solid #E3EDF3;
+  background: #F7FAFB;
+  border-radius: 2px; }
+
+pre {
+  box-sizing: border-box;
+  margin: 1.6em 0;
+  border: 1px solid #E3EDF3;
+  width: 100%;
+  padding: 10px;
+  font-family: Inconsolata, monospace, sans-serif;
+  font-size: 0.9em;
+  white-space: pre;
+  overflow: auto;
+  background: #F7FAFB;
+  border-radius: 3px; }
+
+pre code, tt {
+  font-size: inherit;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  background: transparent;
+  border: none;
+  padding: 0; }
+
+kbd {
+  display: inline-block;
+  margin-bottom: 0.4em;
+  padding: 1px 8px;
+  border: #ccc 1px solid;
+  color: #666;
+  text-shadow: #fff 0 1px 0;
+  font-size: 0.9em;
+  font-weight: bold;
+  background: #f4f4f4;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #fff inset; }
+
+table {
+  box-sizing: border-box;
+  margin: 1.6em 0;
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent; }
+
+table th,
+table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #efefef; }
+
+table th {
+  color: #000; }
+
+table caption + thead tr:first-child th,
+table caption + thead tr:first-child td,
+table colgroup + thead tr:first-child th,
+table colgroup + thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+  border-top: 0; }
+
+table tbody + tbody {
+  border-top: 2px solid #efefef; }
+
+table table table {
+  background-color: #fff; }
+
+table tbody > tr:nth-child(odd) > td,
+table tbody > tr:nth-child(odd) > th {
+  background-color: #f6f6f6; }
+
+table.plain tbody > tr:nth-child(odd) > td,
+table.plain tbody > tr:nth-child(odd) > th {
+  background: transparent; }
+
+iframe, .fluid-width-video-wrapper {
+  display: block;
+  margin: 1.6em 0; }
+
+/* When a video is inside the fitvids wrapper, drop the
+margin on the iframe, cause it breaks stuff. */
+.fluid-width-video-wrapper iframe {
+  margin: 0; }
+
+.highlight pre {
+  background-color: #272822; }
+
+.highlight .hll {
+  background-color: #272822; }
+
+.highlight .c {
+  color: #75715e; }
+
+/* Comment */
+.highlight .err {
+  color: #960050;
+  background-color: #1e0010; }
+
+/* Error */
+.highlight .k {
+  color: #66d9ef; }
+
+/* Keyword */
+.highlight .l {
+  color: #ae81ff; }
+
+/* Literal */
+.highlight .n {
+  color: #f8f8f2; }
+
+/* Name */
+.highlight .o {
+  color: #f92672; }
+
+/* Operator */
+.highlight .p {
+  color: #f8f8f2; }
+
+/* Punctuation */
+.highlight .cm {
+  color: #75715e; }
+
+/* Comment.Multiline */
+.highlight .cp {
+  color: #75715e; }
+
+/* Comment.Preproc */
+.highlight .c1 {
+  color: #75715e; }
+
+/* Comment.Single */
+.highlight .cs {
+  color: #75715e; }
+
+/* Comment.Special */
+.highlight .ge {
+  font-style: italic; }
+
+/* Generic.Emph */
+.highlight .gs {
+  font-weight: bold; }
+
+/* Generic.Strong */
+.highlight .kc {
+  color: #66d9ef; }
+
+/* Keyword.Constant */
+.highlight .kd {
+  color: #66d9ef; }
+
+/* Keyword.Declaration */
+.highlight .kn {
+  color: #f92672; }
+
+/* Keyword.Namespace */
+.highlight .kp {
+  color: #66d9ef; }
+
+/* Keyword.Pseudo */
+.highlight .kr {
+  color: #66d9ef; }
+
+/* Keyword.Reserved */
+.highlight .kt {
+  color: #66d9ef; }
+
+/* Keyword.Type */
+.highlight .ld {
+  color: #e6db74; }
+
+/* Literal.Date */
+.highlight .m {
+  color: #ae81ff; }
+
+/* Literal.Number */
+.highlight .s {
+  color: #e6db74; }
+
+/* Literal.String */
+.highlight .na {
+  color: #a6e22e; }
+
+/* Name.Attribute */
+.highlight .nb {
+  color: #f8f8f2; }
+
+/* Name.Builtin */
+.highlight .nc {
+  color: #a6e22e; }
+
+/* Name.Class */
+.highlight .no {
+  color: #66d9ef; }
+
+/* Name.Constant */
+.highlight .nd {
+  color: #a6e22e; }
+
+/* Name.Decorator */
+.highlight .ni {
+  color: #f8f8f2; }
+
+/* Name.Entity */
+.highlight .ne {
+  color: #a6e22e; }
+
+/* Name.Exception */
+.highlight .nf {
+  color: #a6e22e; }
+
+/* Name.Function */
+.highlight .nl {
+  color: #f8f8f2; }
+
+/* Name.Label */
+.highlight .nn {
+  color: #f8f8f2; }
+
+/* Name.Namespace */
+.highlight .nx {
+  color: #a6e22e; }
+
+/* Name.Other */
+.highlight .py {
+  color: #f8f8f2; }
+
+/* Name.Property */
+.highlight .nt {
+  color: #f92672; }
+
+/* Name.Tag */
+.highlight .nv {
+  color: #f8f8f2; }
+
+/* Name.Variable */
+.highlight .ow {
+  color: #f92672; }
+
+/* Operator.Word */
+.highlight .w {
+  color: #f8f8f2; }
+
+/* Text.Whitespace */
+.highlight .mf {
+  color: #ae81ff; }
+
+/* Literal.Number.Float */
+.highlight .mh {
+  color: #ae81ff; }
+
+/* Literal.Number.Hex */
+.highlight .mi {
+  color: #ae81ff; }
+
+/* Literal.Number.Integer */
+.highlight .mo {
+  color: #ae81ff; }
+
+/* Literal.Number.Oct */
+.highlight .sb {
+  color: #e6db74; }
+
+/* Literal.String.Backtick */
+.highlight .sc {
+  color: #e6db74; }
+
+/* Literal.String.Char */
+.highlight .sd {
+  color: #e6db74; }
+
+/* Literal.String.Doc */
+.highlight .s2 {
+  color: #e6db74; }
+
+/* Literal.String.Double */
+.highlight .se {
+  color: #ae81ff; }
+
+/* Literal.String.Escape */
+.highlight .sh {
+  color: #e6db74; }
+
+/* Literal.String.Heredoc */
+.highlight .si {
+  color: #e6db74; }
+
+/* Literal.String.Interpol */
+.highlight .sx {
+  color: #e6db74; }
+
+/* Literal.String.Other */
+.highlight .sr {
+  color: #e6db74; }
+
+/* Literal.String.Regex */
+.highlight .s1 {
+  color: #e6db74; }
+
+/* Literal.String.Single */
+.highlight .ss {
+  color: #e6db74; }
+
+/* Literal.String.Symbol */
+.highlight .bp {
+  color: #f8f8f2; }
+
+/* Name.Builtin.Pseudo */
+.highlight .vc {
+  color: #f8f8f2; }
+
+/* Name.Variable.Class */
+.highlight .vg {
+  color: #f8f8f2; }
+
+/* Name.Variable.Global */
+.highlight .vi {
+  color: #f8f8f2; }
+
+/* Name.Variable.Instance */
+.highlight .il {
+  color: #ae81ff; }
+
+/* Literal.Number.Integer.Long */
+/* Generic Heading & Diff Header */
+.highlight .gu {
+  color: #75715e; }
+
+/* Generic.Subheading & Diff Unified/Comment? */
+.highlight .gd {
+  color: #f92672; }
+
+/* Generic.Deleted & Diff Deleted */
+.highlight .gi {
+  color: #a6e22e; }
+
+/* Generic.Inserted & Diff Inserted */
+.site-footer {
+  position: relative;
+  margin: 8rem 0 0 0;
+  padding: 4rem 0;
+  border-top: #EBF2F6 1px solid;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.7em;
+  color: #BBC7CC;
+  text-align: center;
+  background: #F7FAFB; }
+
+.site-footer a {
+  color: #BBC7CC;
+  text-decoration: underline; }
+
+.site-footer a:hover {
+  color: #50585D; }
+
+.poweredby .icon-ghost {
+  font-weight: 700;
+  text-decoration: none; }
+
+.poweredby .icon-ghost:hover {
+  text-decoration: none; }
+
+.poweredby .icon-ghost:before {
+  font-size: 1rem;
+  margin-right: 0.2em; }
+
+/* The subscribe icon on the footer */
+.subscribe {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  margin-left: -15px;
+  border: #EBF2F6 1px solid;
+  text-align: center;
+  line-height: 2.4rem;
+  border-radius: 50px;
+  background: #fff;
+  transition: box-shadow 0.5s; }
+
+/* The RSS icon, inserted via icon font */
+.subscribe:before {
+  color: #D2DEE3;
+  font-size: 10px;
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  font-weight: bold;
+  transition: color 0.5s ease; }
+
+/* Add a box shadow to on hover */
+.subscribe:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0 0 0 3px;
+  transition: box-shadow 0.25s; }
+
+.subscribe:hover:before {
+  color: #50585D; }
+
+/* CSS tooltip saying "Subscribe!" - initially hidden */
+.tooltip {
+  opacity: 0;
+  display: inline-block;
+  padding: 4px 8px 5px 8px;
+  position: absolute;
+  top: -23px;
+  left: -21px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1em;
+  text-align: center;
+  background: #50585D;
+  border-radius: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, top 0.3s ease; }
+
+/* The little chiclet arrow under the tooltip, pointing down */
+.tooltip:after {
+  content: "";
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: #50585D transparent;
+  display: block;
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  margin-left: -5px;
+  z-index: 220;
+  width: 0; }
+
+/* On hover, show the tooltip! */
+.subscribe:hover .tooltip {
+  opacity: 1;
+  top: -33px; }
+
+.site__header {
+  padding-bottom: 2rem;
+  margin: 1.5rem 0;
+  border-bottom: .3rem solid #f0f0f0;
+  text-align: center; }
+
+/* Every post, on every page, gets this style on its <article> tag */
+.post {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  margin: 4rem auto;
+  padding-bottom: 4rem;
+  border-bottom: #EBF2F6 1px solid;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto; }
+
+/* Add a little circle in the middle of the border-bottom on our .post
+   just for the lolz and stylepoints. */
+.post:after {
+  display: block;
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: #E7EEF2 1px solid;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: #fff 0 0 0 5px; }
+
+.post-title {
+  margin: 0; }
+
+.post-title a {
+  text-decoration: none; }
+
+.post-excerpt p {
+  margin: 1.6rem 0 0 0;
+  font-size: 0.9em;
+  line-height: 1.6em; }
+
+.post-meta {
+  display: inline-block;
+  margin: 0 0 0px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  color: #9EABB3;
+  text-transform: uppercase; }
+
+.post-meta a {
+  color: #9EABB3;
+  text-decoration: none; }
+
+.post-meta a:hover {
+  text-decoration: underline; }
+
+.user-meta {
+  position: relative;
+  padding: 0.3rem 40px 0 100px;
+  min-height: 77px; }
+
+.user-image {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.user-name {
+  display: block;
+  font-weight: bold; }
+
+.user-bio {
+  display: block;
+  max-width: 440px;
+  font-size: 1.4rem;
+  line-height: 1.5em; }
+
+.publish-meta {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4.3rem 0 4rem 0;
+  text-align: right; }
+
+.publish-heading {
+  display: block;
+  font-weight: bold; }
+
+.publish-date {
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1.5em; }
+
+/* ====================================================.post-meta======================
+   5. Single Post - When you click on an individual post
+   ========================================================================== */
+.post .blog-title {
+  text-transform: text-capitalize; }
+
+/* Tweak the .post wrapper style */
+.post-template .post {
+  margin-top: 0;
+  border-bottom: none;
+  padding-bottom: 0; }
+
+/* Kill that stylish little circle that was on the border, too */
+.post-template .post:after {
+  display: none; }
+
+/* Insert some mad padding up in the header for better spacing */
+.post-template .post-header {
+  padding: 60px 0;
+  text-align: center; }
+
+.post-template .blog-title {
+  display: inline-block;
+  padding: 2.5rem 0; }
+
+.post-content:first-letter {
+  font-size: 3.4em;
+  padding: 0 0.1em 0 0;
+  line-height: 0.7;
+  float: left;
+  margin: 0.1em 0.1em 0 0; }
+
+/* Keep large images within the bounds of the post-width */
+.post-content img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto; }
+
+/* The author credit area after the post */
+.post-footer {
+  position: relative;
+  margin: 4rem 0 0 0;
+  padding: 4rem 0 0 0;
+  border-top: #EBF2F6 1px solid; }
+
+.post-footer h4 {
+  font-size: 1.8rem;
+  margin: 0; }
+
+.post-footer p {
+  margin: 1rem 0;
+  font-size: 1.4rem;
+  line-height: 1.6em; }
+
+/* Create some space to the right for the share links */
+.post-footer .author {
+  margin-right: 180px; }
+
+/* Drop the share links in the space to the right.
+   Doing it like this means it's easier for the author bio
+   to be flexible at smaller screen sizes while the share
+   links remain at a fixed width the whole time */
+.post-footer .share {
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  width: 140px; }
+
+.post-footer .share a {
+  font-size: 1.8rem;
+  display: inline-block;
+  margin: 1.4rem 1.6rem 1.6rem 0;
+  color: #BBC7CC;
+  text-decoration: none; }
+
+.post-footer .share a:hover {
+  color: #50585D; }
+
+/* The main wrapper for our pagination links */
+.pagination {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  margin: 4rem auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3rem;
+  color: #9EABB3;
+  text-align: center; }
+
+.pagination a {
+  color: #9EABB3; }
+
+/* Push the previous/next links out to the left/right */
+.older-posts,
+.newer-posts {
+  position: absolute;
+  display: inline-block;
+  padding: 0 15px;
+  border: #EBF2F6 2px solid;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: border ease 0.3s; }
+
+.older-posts {
+  right: 0; }
+
+.page-number {
+  display: inline-block;
+  padding: 2px 0; }
+
+.newer-posts {
+  left: 0; }
+
+.older-posts:hover,
+.newer-posts:hover {
+  border-color: #9EABB3; }

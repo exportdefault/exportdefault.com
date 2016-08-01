@@ -1,0 +1,73 @@
+/* Rosario. I've added and changed few things. Feel free to change it as you like */
+
+/* Font size of 2.0 is too big, I'll reduce it */
+body {font-size: 1.9rem; }
+
+/* Adding some text shadow*/
+.site-head { padding: 40px 0; text-shadow: 2px 2px #234;}
+.site-head a {color:#eee;}
+
+/* The font is too large in the post view. Revert to small size*/
+.post-header .blog-title {font-size:inherit;}
+
+/* Reduce font size and add line-height*/
+pre{
+  font-size: 0.75em;
+  line-height: 1.4em;
+}
+
+nav {
+    font-size: 13px;
+    text-align: center;
+    padding: 0.5em;
+}
+nav a {
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    margin: 0.5em 1em;
+    background: #f2f2f2;
+    color: #57A3E8;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 0 1em;
+}
+
+nav a:hover {
+    background: #57A3E8;
+    color: #f2f2f2;
+}
+
+/* Author styling */
+.author {margin-bottom:1em;}
+.author header{
+  float:left;
+  width: 80px;
+}
+.author article{
+  margin-left:80px;
+  min-height: 80px;
+  padding-left:20px;
+}
+img.profile {
+  width:80px;
+  height:auto;
+    border-radius: 50px;
+}
+
+.PageNavigation {
+  font-size: 14px;
+  display: block;
+  width: auto;
+  overflow: hidden;
+}
+
+.PageNavigation a {
+  display: block;
+  width: 50%;
+  float: left;
+  margin: 1em 0;
+}
+
+.PageNavigation .next {
+  text-align: right;
+}

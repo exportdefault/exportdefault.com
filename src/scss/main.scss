@@ -1,0 +1,16 @@
+@charset 'utf-8';
+
+@import 'variables/variables';
+
+@import 'site/normalize';
+@import 'site/syntax';
+
+@import 'site/containers';
+@import 'site/footer';
+@import 'site/header';
+@import 'site/tags';
+@import 'site/navbar';
+@import 'site/post'; 
+@import 'site/social-links';
+@import 'site/author'; 
+@import 'site/pagination';

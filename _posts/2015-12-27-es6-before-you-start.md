@@ -56,31 +56,3 @@ var MyFamily = new Family([ // Моя семья
 2. [Types & Grammar](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20&%20grammar/README.md#you-dont-know-js-types--grammar) − подробно рассмотрен каждый тип данных и "грамматика" (как работают синтаксические конструкции).
 3. [Scope & Closures](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/README.md#you-dont-know-js-scope--closures) − области видимости и замыкания.
 4. [this & Object Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20&%20object%20prototypes/README.md#you-dont-know-js-this--object-prototypes) − ключевое слово `this` и принципы прототипного наследования (основы объектно-ориентированного программирования).
-
-## Проверьте свои знания
-Для проверки своих знаний прошлых спецификаций вы можете ответить на следующие вопросы:
-
-1. Что такое `strict mode`? Для чего он используется и какие ошибки способен предотвратить? 
-  * [use strict](https://learn.javascript.ru/strict-mode) − JavaScript.ru
-  * [Как строгий режим "use strict" в JavaScript может сэкономить вам пару часов](http://frontender.info/why-use-strict-in-javascript-can-save-you-hours/) − frontender.info
-
-2. Чем отличаются операторы `==` и `===`?
-  * [Отличия == и === в JavaScript](http://habrahabr.ru/post/138272/) − Хабр
-  * [Операторы сравнения и логические значения](https://learn.javascript.ru/comparison) − JavaScript.ru
-
-3. В чем отличия `null` от `undefined`?
-  * [Исследование бездны null и undefined в JavaScript](http://frontender.info/exploring-the-abyss-of-null-and-undefined-in-javascript/) − frontender.info
-
-4. Что такое замыкания (closures)? Как их можно использовать?
-  * Замыкания в JavaScript: [часть 1](http://habrahabr.ru/post/223459/) и [часть 2](http://habrahabr.ru/post/229887/) − Хабр
-  * [Замыкания на практике](https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures#Замыкания_на_практике) − MDN
-
-5. Что такое функции высшего порядка?
-  * [Функции высшего порядка](http://habrahabr.ru/post/241155/) − Выразительный JavaScript
-
-6. В чем разница между `function declaration` и `function expression`?
-  * [Функциональные выражения](https://learn.javascript.ru/function-declaration-expression) − JavaScript.ru
-
-7. Чем отличается метод `Object.create()` от оператора `new`?
-  * [Object.create](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/create) − MDN
-  * [Prototype, proto и оператор new](http://habrahabr.ru/post/140810/) − Хабр
