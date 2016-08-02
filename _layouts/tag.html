@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+<body>
+  {% include header.html %}
+
+  <div class="tag-search">
+     Материалы по тегу: 
+      <a href="/tag/{{ page.tag }}" class="tags-cloud__tag">
+      <span class="tag__icon"><i class="fa fa-tag"></i></span>
+      <span class="tag__text">{{ page.tag }}</span>
+    </a> 
+  </div>
+
+  <main class="page-content">
+    <ul class="post post-list">
+      <!--{% for post in site.posts %}
+        <li class="post-item">
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <h2 class="post-item__title">
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+          </h2>
+        </li>
+      {% endfor %}-->
+
+      {% for post in site.tags[page.tag] %}
+        <li class="post-item">
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <h2 class="post-item__title">
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+          </h2>
+        </li>
+      {% endfor %}
+    </ul>
+
+    &#123;% include subscribe-container %&#125;
+  </main>
+
+  {% include footer.html %}
+
+</body>
+</html>

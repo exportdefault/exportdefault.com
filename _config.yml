@@ -57,5 +57,5 @@ future: true
 gems:
  - jekyll-paginate
 
-paginate: 3
+paginate: 4
 paginate_path: "/page/:num"
