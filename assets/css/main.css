@@ -38,8 +38,8 @@ body {
   height: 100%;
   max-height: 100%;
   font-family: 'Noto Serif', serif;
-  font-size: 2.0rem;
-  line-height: 1.6em;
+  font-size: 1.85rem;
+  line-height: 1.5em;
   color: #3A4145; }
 
 ::-moz-selection {
@@ -60,13 +60,14 @@ h4, h5, h6 {
   font-family: 'Open Sans', sans-serif; }
 
 h1 {
-  font-size: 5rem;
+  font-size: 4.2rem;
   line-height: 1.2em;
   letter-spacing: -2px;
-  text-indent: -3px; }
+  text-indent: -3px;
+  color: #2E2E2E; }
   @media (min-width: 500px) and (max-width: 900px) {
     h1 {
-      font-size: 4.8rem;
+      font-size: 3.8rem;
       text-indent: -2px; } }
   @media (max-width: 500px) {
     h1 {
@@ -75,39 +76,39 @@ h1 {
       letter-spacing: -1px; } }
 
 h2 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   line-height: 1.2em;
   letter-spacing: -1px;
   text-indent: -2px; }
   @media (min-width: 500px) and (max-width: 900px) {
     h2 {
-      font-size: 3.8rem; } }
+      font-size: 2.8rem; } }
   @media (max-width: 500px) {
     h2 {
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       line-height: 1.1em;
       letter-spacing: -1px; } }
 
 h3 {
-  font-size: 3.5rem; }
-  @media (min-width: 500px) and (max-width: 900px) {
-    h3 {
-      font-size: 3.3rem; } }
-  @media (max-width: 500px) {
-    h3 {
-      font-size: 2.8rem; } }
-
-h4 {
   font-size: 3rem; }
   @media (min-width: 500px) and (max-width: 900px) {
+    h3 {
+      font-size: 2.5rem; } }
+  @media (max-width: 500px) {
+    h3 {
+      font-size: 2.1rem; } }
+
+h4 {
+  font-size: 2.7rem; }
+  @media (min-width: 500px) and (max-width: 900px) {
     h4 {
-      font-size: 2.8rem; } }
+      font-size: 2.4rem; } }
   @media (max-width: 500px) {
     h4 {
-      font-size: 2.3rem; } }
+      font-size: 2.0rem; } }
 
 h5 {
-  font-size: 2.5rem; }
+  font-size: 2.2rem; }
 
 h6 {
   font-size: 2rem; }
@@ -629,11 +630,87 @@ figure {
   opacity: 1;
   top: -33px; }
 
-.site__header {
-  padding-bottom: 2rem;
-  margin: 1.5rem 0;
-  border-bottom: .3rem solid #f0f0f0;
-  text-align: center; }
+.main-header {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 5rem;
+  text-align: center;
+  background-size: cover;
+  overflow: hidden; }
+  @media (max-width: 500px) {
+    .main-header {
+      border-bottom: .2rem solid #f0f0f0;
+      margin-bottom: -2rem;
+      margin-left: -2rem;
+      margin-top: -1rem;
+      margin-right: -8rem; } }
+
+.no-cover.main-header {
+  background: #fff; }
+
+.main-nav {
+  position: relative;
+  /*padding: 35px 40px;*/
+  margin: 0 0 30px 0; }
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table; }
+
+.no-cover .main-nav.overlay, .no-cover .back-button, .no-cover .subscribe-button {
+  background: none; }
+
+.main-nav a {
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif; }
+
+.back-button {
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  height: 38px;
+  padding: 0 15px 0 10px;
+  border: transparent 1px solid;
+  color: #9EABB3;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 35px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  transition: all ease 0.3s; }
+
+.back-button:before {
+  position: relative;
+  bottom: -2px;
+  font-size: 13px;
+  line-height: 0;
+  margin-right: 8px; }
+
+.icon-arrow-left:before {
+  content: "\f605"; }
+
+/*[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "casper-icons", "Open Sans", sans-serif;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    text-decoration: none !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}*/
+.back-button:hover,
+.subscribe-button:hover {
+  border-color: #bfc8cd;
+  color: #9EABB3; }
+
+.back-button i {
+  font-size: 1.5rem;
+  padding-right: 10px; }
 
 /*
     0.  Includes
@@ -826,13 +903,24 @@ figure {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.5rem;
   color: #9EABB3;
-  text-transform: uppercase; }
-  @media (min-width: 500px) and (max-width: 900px) {
-    .post-meta {
-      font-size: .8em; } }
-  @media (max-width: 500px) {
-    .post-meta {
-      font-size: .7em; } }
+  /*@include tablet-only {
+    font-size: .8em;
+  }
+
+  @include mobile-only {
+    font-size: .7em;
+  }*/ }
+
+.post-meta time {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  /*@include tablet-only {
+    font-size: .9em;
+  }
+
+  @include mobile-only {
+    font-size: .9em;
+  }  */ }
 
 .post-meta a {
   color: #9EABB3;

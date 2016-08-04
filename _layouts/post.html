@@ -4,18 +4,19 @@ layout: posts
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <span class="post-meta">
-      Опубликовал 
-      <a id="blog-logo" href="/author/{{ page.author }}"><span class="blog-title">{{ page.author_name }}</span></a>
       <time datetime="2015-06-08">{% include date.html %}</time>
+      {% for tag in post.tags %} 
+      <a href="/tag/{{ tag }}" class="">#{{tag}}</a> 
+      {% endfor %}
     </span>
     <h1 class="post-title">{{ page.title }}</h1>
-    {{ page.slogan }}
+    <div>{{ page.slogan }}</div>
   </header>
 
   <section class="post-content">
     {{ content }}
 
-    {% include tags-cloud.html %}
+    <!--{ % include tags-cloud.html % }-->
 
   </section>
 
@@ -34,6 +35,14 @@ layout: posts
   </footer>
 </article>
 
+
+<!--
+<span class="post-meta">
+  Опубликовал 
+  <a id="blog-logo" href="/author/{{ page.author }}"><span class="blog-title">{{ page.author_name }}</span></a>
+  <time datetime="2015-06-08">{% include date.html %}</time>
+</span>
+-->
 
 <!--
 {% include article__icon.html %}

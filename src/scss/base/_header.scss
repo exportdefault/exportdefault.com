@@ -1,6 +1,101 @@
-.site__header {
-  padding-bottom: 2rem;
-  margin: 1.5rem 0;
-  border-bottom: .3rem solid #f0f0f0;
+.main-header {
+
+  //padding-bottom: 2rem;
+  //margin: 1.5rem 0;
+
+  //border-bottom: .3rem solid #f0f0f0;
   text-align: center;
+  position: relative;
+  //display: table;
+  width: 100%;
+  margin-bottom: 5rem;
+  text-align: center;
+  background-size: cover;
+  overflow: hidden;
+
+  @include mobile-only {
+    border-bottom: .2rem solid #f0f0f0;
+    margin-bottom: -2rem;
+    margin-left: -2rem;
+    margin-top: -1rem;
+    margin-right: -8rem;
+  }
+
 }
+
+.no-cover.main-header {
+    background: #fff;
+}
+
+.main-nav {
+    position: relative;
+    /*padding: 35px 40px;*/
+    margin: 0 0 30px 0;
+}
+
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.no-cover .main-nav.overlay, .no-cover .back-button, .no-cover .subscribe-button {
+    background: none;
+}
+.main-nav a {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+.back-button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    height: 38px;
+    padding: 0 15px 0 10px;
+    border: transparent 1px solid;
+    color: #9EABB3;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 35px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.1);
+    transition: all ease 0.3s;
+}
+
+.back-button:before {
+    position: relative;
+    bottom: -2px;
+    font-size: 13px;
+    line-height: 0;
+    margin-right: 8px;
+}
+.icon-arrow-left:before {
+    content: "\f605";
+}
+
+/*[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "casper-icons", "Open Sans", sans-serif;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    text-decoration: none !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}*/
+
+.back-button:hover,
+.subscribe-button:hover {
+    border-color: #bfc8cd;
+    color: #9EABB3;
+}
+
+.back-button i {
+  font-size: 1.5rem;
+  padding-right: 10px;
+}
+
