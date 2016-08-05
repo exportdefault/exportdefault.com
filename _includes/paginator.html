@@ -1,12 +1,19 @@
-<!-- Pagination links -->
 {% if paginator.total_pages > 1 %}
-  <ul class="pagination">
-    {% if paginator.previous_page %}
-      <li class="pagination__previous"><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">Раньше</a>
-    {% else %}
-      <li class="pagination__previous pagination__previous--disabled">Раньше</li>
-    {% endif %}
+<nav class="pagination" role="navigation">
 
+    {% if paginator.next_page %}    
+    <a class="older-posts" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Раньше →</a>
+    {% endif %}    
+
+    <span class="page-number">Page {{paginator.page}} of {{paginator.total_pages}}</span>
+
+    {% if paginator.previous_page %}    
+    <a class="newer-posts" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">← Позже</a>    
+    {% endif %}    
+</nav>
+{% endif %}
+
+<!--
     {% for page in (1..paginator.total_pages) %}
       {% if page == paginator.page %}
         <li class="pagination__item pagination__current">{{ page }}</li>
@@ -16,26 +23,4 @@
         <li class="pagination__item"><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
       {% endif %}
     {% endfor %}
-
-    {% if paginator.next_page %}
-      <li class="pagination__next"><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Позже</a></li>
-    {% else %}
-      <li class="pagination__next pagination__next--disabled">Позже</li>
-    {% endif %}
-  </ul>
-{% endif %}
-
-<style>
-.pagination {
-  list-style-type: none;
-}
-.pagination li {
-  float: left;
-}
-
-.pagination:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-</style>
+-->

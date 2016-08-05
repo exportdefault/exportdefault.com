@@ -21,7 +21,7 @@ nav {
     text-align: center;
     padding: 0.5em;
 }
-nav a {
+/*nav a {
     font-family: 'Open Sans', sans-serif;
     display: inline-block;
     margin: 0.5em 1em;
@@ -30,7 +30,7 @@ nav a {
     text-decoration: none;
     border-radius: 6px;
     padding: 0 1em;
-}
+}*/
 
 nav a:hover {
     background: #57A3E8;

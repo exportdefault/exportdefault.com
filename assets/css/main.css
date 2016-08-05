@@ -40,7 +40,11 @@ body {
   font-family: 'Noto Serif', serif;
   font-size: 1.85rem;
   line-height: 1.5em;
-  color: #3A4145; }
+  color: #3A4145;
+  margin: 0px; }
+
+.page-content {
+  margin: 0px; }
 
 ::-moz-selection {
   color: #222;
@@ -631,28 +635,123 @@ figure {
   top: -33px; }
 
 .main-header {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 30%;
+  margin-bottom: 5rem;
+  text-align: center;
+  background: #222 no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+  background-image: url("../i/stock-photo-132421573.jpg"); }
+  @media (max-width: 500px) {
+    .main-header {
+      height: 80%; } }
+
+.main-nav {
+  position: relative; }
+
+.main-nav.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  border: none;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, transparent 100%); }
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table; }
+
+.main-nav.overlay a {
+  color: #fff; }
+
+.main-nav a {
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif; }
+
+.subscribe-button {
+  box-sizing: border-box;
+  display: inline-block;
+  float: right;
+  height: 38px;
+  padding: 0 20px;
+  border: transparent 1px solid;
+  color: #9EABB3;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 35px;
+  white-space: nowrap;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  transition: all ease 0.3s; }
+
+.main-nav.overlay .back-button, .main-nav.overlay .subscribe-button {
+  border-color: rgba(255, 255, 255, 0.6); }
+
+.main-nav.overlay a:hover {
+  color: #222;
+  border-color: #fff;
+  background: #fff;
+  transition: all 0.1s ease; }
+
+.subscribe-button:before {
+  font-size: 9px;
+  margin-right: 6px; }
+
+.clearfix:after {
+  clear: both; }
+
+.vertical {
+  display: table-cell;
+  vertical-align: middle; }
+
+.main-header .inner {
+  width: 80%; }
+
+.inner {
+  position: relative;
+  width: 80%;
+  max-width: 710px;
+  margin: 0 auto; }
+
+.page-title {
+  margin: 10px 0 10px 0;
+  letter-spacing: -1px;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  color: #fff; }
+
+.page-description {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.5em;
+  font-weight: 400;
+  font-family: "Merriweather", serif;
+  letter-spacing: 0.01rem;
+  color: rgba(255, 255, 255, 0.8); }
+
+.post-head {
   text-align: center;
   position: relative;
   width: 100%;
   margin-bottom: 5rem;
   text-align: center;
   background-size: cover;
-  overflow: hidden; }
+  overflow: hidden;
+  height: auto; }
   @media (max-width: 500px) {
-    .main-header {
-      border-bottom: .2rem solid #f0f0f0;
-      margin-bottom: -2rem;
-      margin-left: -2rem;
-      margin-top: -1rem;
-      margin-right: -8rem; } }
+    .post-head {
+      border-bottom: .2rem solid #f0f0f0; } }
 
-.no-cover.main-header {
+.no-cover.post-head {
   background: #fff; }
 
 .main-nav {
-  position: relative;
-  /*padding: 35px 40px;*/
-  margin: 0 0 30px 0; }
+  position: relative; }
 
 .clearfix:before, .clearfix:after {
   content: " ";
@@ -688,21 +787,6 @@ figure {
   line-height: 0;
   margin-right: 8px; }
 
-.icon-arrow-left:before {
-  content: "\f605"; }
-
-/*[class^="icon-"]:before, [class*=" icon-"]:before {
-    font-family: "casper-icons", "Open Sans", sans-serif;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    text-decoration: none !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}*/
 .back-button:hover,
 .subscribe-button:hover {
   border-color: #bfc8cd;
@@ -843,14 +927,37 @@ figure {
 
 .post-list {
   list-style-type: none; }
+  @media (max-width: 500px) {
+    .post-list {
+      padding: 0px; } }
 
 .post-item__title {
-  margin-top: -0.9rem;
-  font-size: 1.1em; }
+  margin: 0;
+  padding-bottom: 1em;
+  font-size: 3.5rem;
+  text-decoration: none; }
+  @media (min-width: 500px) and (max-width: 900px) {
+    .post-item__title {
+      font-size: 3.2rem; } }
+  @media (max-width: 500px) {
+    .post-item__title {
+      font-size: 2.8rem; } }
+
+.post-item__description {
+  line-height: 1.5em;
+  font-size: 1.65rem; }
+
+.post-item a {
+  color: #4A4A4A;
+  transition: color ease 0.3s;
+  text-decoration: none; }
+
+.post-item a:hover {
+  color: #111; }
 
 .post {
   position: relative;
-  width: 80%;
+  /*width: 80%;*/
   max-width: 700px;
   margin: 4rem auto;
   padding-bottom: 4rem;
@@ -875,7 +982,9 @@ figure {
   @media (min-width: 500px) and (max-width: 900px) {
     .post {
       font-size: 0.9em;
-      line-height: 1.6em; } }
+      line-height: 1.6em;
+      margin-left: 10px;
+      margin-right: 10px; } }
   @media (max-width: 500px) {
     .post {
       width: auto;
@@ -883,19 +992,6 @@ figure {
       margin-right: 16px;
       font-size: 0.8em;
       line-height: 1.6em; } }
-
-/* Add a little circle in the middle of the border-bottom on our .post
-   just for the lolz and stylepoints. */
-.post-title {
-  margin: 0; }
-
-.post-title a {
-  text-decoration: none; }
-
-.post-excerpt p {
-  margin: 1.6rem 0 0 0;
-  font-size: 0.9em;
-  line-height: 1.6em; }
 
 .post-meta {
   display: inline-block;
@@ -929,45 +1025,6 @@ figure {
 .post-meta a:hover {
   text-decoration: underline; }
 
-.user-meta {
-  position: relative;
-  padding: 0.3rem 40px 0 100px;
-  min-height: 77px; }
-
-.user-image {
-  position: absolute;
-  top: 0;
-  left: 0; }
-
-.user-name {
-  display: block;
-  font-weight: bold; }
-
-.user-bio {
-  display: block;
-  max-width: 440px;
-  font-size: 1.4rem;
-  line-height: 1.5em; }
-
-.publish-meta {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 4.3rem 0 4rem 0;
-  text-align: right; }
-
-.publish-heading {
-  display: block;
-  font-weight: bold; }
-
-.publish-date {
-  display: block;
-  font-size: 1.4rem;
-  line-height: 1.5em; }
-
-/* ====================================================.post-meta======================
-   5. Single Post - When you click on an individual post
-   ========================================================================== */
 .post .blog-title {
   text-transform: text-capitalize; }
 
@@ -1044,6 +1101,15 @@ figure {
 .post-footer .share a:hover {
   color: #50585D; }
 
+.pagination a {
+  color: #9EABB3;
+  transition: all 0.2s ease; }
+
+.page-number {
+  display: inline-block;
+  padding: 2px 0;
+  min-width: 100px; }
+
 /* The main wrapper for our pagination links */
 .pagination {
   position: relative;
@@ -1055,20 +1121,7 @@ figure {
   color: #9EABB3;
   text-align: center; }
 
-.pagination a {
-  color: #9EABB3; }
-
 /* Push the previous/next links out to the left/right */
-.older-posts,
-.newer-posts {
-  position: absolute;
-  display: inline-block;
-  padding: 0 15px;
-  border: #EBF2F6 2px solid;
-  text-decoration: none;
-  border-radius: 30px;
-  transition: border ease 0.3s; }
-
 .older-posts {
   right: 0; }
 
@@ -1079,6 +1132,32 @@ figure {
 .newer-posts {
   left: 0; }
 
+.older-posts, .newer-posts {
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  height: 38px;
+  padding: 0 15px 0 10px;
+  border: transparent 1px solid;
+  color: #9EABB3;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 35px;
+  background: rgba(0, 0, 0, 0.1);
+  transition: all ease 0.3s;
+  border-radius: 3px;
+  position: absolute;
+  display: inline-block;
+  padding: 0 15px;
+  border: #bbc2c5 1px solid;
+  text-decoration: none;
+  transition: border ease 0.3s; }
+
 .older-posts:hover,
 .newer-posts:hover {
-  border-color: #9EABB3; }
+  color: #889093;
+  border-color: #98a0a4; }
+
+.older-posts, .older-posts:hover, .newer-posts, .newer-posts:hover {
+  background: none; }

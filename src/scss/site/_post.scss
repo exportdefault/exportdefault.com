@@ -1,21 +1,51 @@
-.page-content {
-  //text-align: center;
-}
-
 .post-list {
   list-style-type: none;
+
+  @include mobile-only {
+    padding: 0px;
+  } 
 }
 
 .post-item {
   &__title {
-    margin-top: -0.9rem;
-    font-size: 1.1em;
+    //margin-top: -0.9rem;
+    margin: 0;
+    //font-size: 4rem;
+    padding-bottom: 1em;
+
+    font-size: 3.5rem;
+    text-decoration: none;
+
+    @include tablet-only {
+      font-size: 3.2rem;
+    }
+
+    @include mobile-only {
+      font-size: 2.8rem;
+    }
+  }
+
+  &__description {
+    line-height: 1.5em;
+    font-size: 1.65rem;
   }
 }
 
+.post-item a {
+  color: #4A4A4A;
+  transition: color ease 0.3s;
+  text-decoration: none;
+}
+
+.post-item a:hover {
+  color: #111;
+}
+
+
+
 .post {
   position: relative;
-  width: 80%;
+  /*width: 80%;*/
   max-width: 700px;
   margin: 4rem auto;
   padding-bottom: 4rem;
@@ -43,6 +73,8 @@
   @include tablet-only {
     font-size: 0.9em;
     line-height: 1.6em;
+    margin-left: 10px;
+    margin-right: 10px;    
   }
 
   @include mobile-only {
@@ -54,23 +86,8 @@
   }
 }
 
-/* Add a little circle in the middle of the border-bottom on our .post
-   just for the lolz and stylepoints. */
 
 
-.post-title {
-    margin:0;
-}
-
-.post-title a {
-    text-decoration: none;
-}
-
-.post-excerpt p {
-    margin: 1.6rem 0 0 0;
-    font-size: 0.9em;
-    line-height: 1.6em;
-}
 
 
 
@@ -115,52 +132,16 @@
 }
 
 
-.user-meta {
-    position: relative;
-    padding: 0.3rem 40px 0 100px;
-    min-height: 77px;
-}
 
-.user-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
 
-.user-name {
-    display: block;
-    font-weight: bold;
-}
 
-.user-bio {
-    display: block;
-    max-width: 440px;
-    font-size: 1.4rem;
-    line-height: 1.5em;
-}
 
-.publish-meta {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 4.3rem 0 4rem 0;
-    text-align: right;
-}
 
-.publish-heading {
-    display: block;
-    font-weight: bold;
-}
 
-.publish-date {
-    display: block;
-    font-size: 1.4rem;
-    line-height: 1.5em;
-}
 
-/* ====================================================.post-meta======================
-   5. Single Post - When you click on an individual post
-   ========================================================================== */
+
+
+
 
 
 .post .blog-title {
